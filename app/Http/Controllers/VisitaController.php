@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Visita;
+use App\Models\Prisionero;
+use App\Models\Visitante;
+use App\Models\Guardia;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\VisitaRequest;
@@ -30,6 +33,7 @@ class VisitaController extends Controller
         $visita = new Visita();
 
         return view('visita.create', [
+            'visita' => $visita,
             'prisioneros' => Prisionero::all(),
             'visitantes'  => Visitante::all(),
             'guardias'    => Guardia::all(),
